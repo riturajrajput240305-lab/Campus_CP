@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--nf-body), system-ui, sans-serif;
+  --font-display: var(--nf-display), system-ui, sans-serif;
+  --font-mono: var(--nf-body), system-ui, sans-serif;
+  --color-brand: #e9c46a;
+  --color-brand-glow: rgba(233, 196, 106, 0.25);
+  --color-bg-base: #0e1013;
+  --color-bg-surface: #14171c;
+  --color-bg-surface-elevated: #1a1e24;
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(233, 196, 106, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #0e1013;
+  color: #ece9e1;
+  font-family: var(--font-sans);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0e1013;
+  color: #ece9e1;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0e1013;
+}
+::-webkit-scrollbar-thumb {
+  background: #232d26;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #36443a;
+}
+
+/* Lenis smooth scrolling core styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Ambient glow & backdrop utilities */
+.glow-ambient {
+  background: radial-gradient(650px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(233, 196, 106, 0.07), transparent 60%);
+}
+
+.radar-sweep {
+  background: conic-gradient(from 0deg at 50% 50%, rgba(233, 196, 106, 0.25) 0deg, rgba(233, 196, 106, 0.04) 60deg, transparent 90deg);
+}
+
+.platform-logo {
+  filter: contrast(1.1) saturate(1.1);
+}
+
+.logo-screen {
+  mix-blend-mode: screen;
+}
+
+.logo-multiply {
+  mix-blend-mode: multiply;
+  filter: contrast(1.7) saturate(1.25) brightness(1.7);
+}
+
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+.font-mono, .tnum { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid #e9c46a; outline-offset: 3px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* ---------------------------------------------------------------
+   Apple-iOS style frosted glass surfaces
+   Transparent, generously rounded buttons, cards and inputs.
+   ----------------------------------------------- */
+@layer components {
+  /* Frosted glass card — the shared surface for every panel on the site */
+  .ios-card {
+    border-radius: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    background-image: linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.085) 0%,
+      rgba(255, 255, 255, 0.015) 60%
+    );
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 24px 60px -30px rgba(0, 0, 0, 0.75),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+    transform-origin: center center;
+    transition:
+      scale 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  .ios-card:hover {
+    scale: 1.02;
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow:
+      0 30px 70px -30px rgba(0, 0, 0, 0.8),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  /* Transparent glass pill button — same light-blue hover for every button */
+  .ios-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 8px 22px -12px rgba(0, 0, 0, 0.6);
+    color: #ece9e1;
+    cursor: pointer;
+    transition:
+      background-color 0.22s ease,
+      border-color 0.22s ease,
+      box-shadow 0.22s ease,
+      color 0.22s ease,
+      transform 0.15s ease;
+  }
+  .ios-btn:hover {
+    background-color: rgba(96, 165, 250, 0.18);
+    border-color: rgba(147, 197, 253, 0.5);
+    color: #dbeafe;
+    box-shadow:
+      inset 0 1px 0 rgba(219, 234, 254, 0.28),
+      0 0 24px -4px rgba(96, 165, 250, 0.45),
+      0 8px 22px -12px rgba(0, 0, 0, 0.6);
+  }
+  .ios-btn:focus-visible {
+    outline: none;
+    border-color: rgba(147, 197, 253, 0.65);
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.35);
+  }
+  .ios-btn:active {
+    transform: scale(0.97);
+  }
+
+  /* Alias kept for primary CTAs: same transparent glass, same blue hover */
+  .ios-btn-accent {
+    background-color: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.16);
+    color: #ece9e1;
+  }
+  .ios-btn-accent:hover {
+    background-color: rgba(96, 165, 250, 0.18);
+    border-color: rgba(147, 197, 253, 0.5);
+    color: #dbeafe;
+    box-shadow:
+      inset 0 1px 0 rgba(219, 234, 254, 0.28),
+      0 0 24px -4px rgba(96, 165, 250, 0.45),
+      0 8px 22px -12px rgba(0, 0, 0, 0.6);
+  }
+
+  .ios-input {
+    border-radius: 0.875rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .ios-input:focus {
+    border-color: rgba(147, 197, 253, 0.6);
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.25);
+  }
+}

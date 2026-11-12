@@ -1,0 +1,21 @@
+node_modules/
+.next/
+out/
+dist/
+build/
+
+# Local environment files
+.env*
+
+# Debug and runtime output
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.vercel/
+
+# Local tooling and OS files
+.DS_Store
+Thumbs.db
+*.swp
+.idea/

@@ -1,0 +1,41 @@
+{
+  "name": "new-folder-(2)",
+  "version": "1.0.0",
+  "description": "Campus Code — India's premier campus competitive-programming network. A premium, animation-rich Next.js landing page, dashboard and login gateway that unifies LeetCode, Codeforces, CodeChef and NeetCode rankings.",
+  "private": true,
+  "keywords": [
+    "nextjs",
+    "react",
+    "tailwindcss",
+    "motion",
+    "gsap",
+    "lenis",
+    "competitive-programming",
+    "leaderboard"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
+    "@tailwindcss/postcss": "^4.3.4",
+    "gsap": "^3.15.1",
+    "lenis": "^1.3.27",
+    "lucide-react": "^1.71.0",
+    "motion": "^14.9.1",
+    "next": "^16.4.5",
+    "postcss": "^8.5.32",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "recharts": "^3.10.1",
+    "tailwindcss": "^4.3.4",
+    "three": "^0.187.0"
+  }
+}
